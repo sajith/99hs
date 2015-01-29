@@ -16,6 +16,8 @@ Example in Haskell:
 
 --}
 
+-- TODO: rewrite span, so that this doesn't use anything from prelude.
+
 pack :: Eq a => [a] -> [[a]]
 pack xs = filter (/= []) $ pack' xs
   where
