@@ -20,3 +20,21 @@ isPalindrome (x:xs) = if x == last xs
                       then isPalindrome $ take ((length xs) - 1) $ tail $ reverse xs
                       else False
 
+{--
+
+-- from solutions:
+
+isPalindrome2 xs = xs == reverse xs
+
+isPalindrome3 []  = True
+isPalindrome3 [_] = True
+isPalindrome3 xs  = (head xs) == (last xs) && (isPalindrome3 $ init $ tail xs)
+
+isPalindrome4 xs = and $ zipWith (==) xs (reverse xs)
+
+isPalindrome5 xs = foldr (&&) True $ zipWith (==) xs (reverse xs)
+
+TODO: revisit solutions that use Control.Arrows and
+Control.Applicative.
+
+--}
