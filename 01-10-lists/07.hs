@@ -26,12 +26,11 @@ homogeneous.
 
 --}
 
-data NestedList a = Elem a | List [NestedList a]
+data NestedList a = Elem a | List [NestedList a] deriving (Show,Eq)
 
 flatten :: NestedList a -> [a]
-flatten list = flatten' list []
-  where
-    flatten' (Elem a) res = a : res
-    flatten' (List [NestedList a]) res = undefined
+flatten (Elem a) = [a]
+flatten (List l) = concatMap flatten l
+
 
 
