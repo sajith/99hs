@@ -14,4 +14,11 @@ Example in Haskell:
 
 --}
 
-dupli = concatMap (take 2 . repeat x)
+dupli = concatMap (replicate 2)
+
+{--
+
+also:
+dupli2 = concatMap (take 2 . repeat)
+
+--}
