@@ -31,5 +31,5 @@ rotateL xs 0 = xs
 rotateL xs n = rotateL (last xs : init xs) (n - 1)
 
 rotateR xs 0     = xs
-rotateR (x:ys) n = rotateR (ys ++ [x]) (n-1)
+rotateR (x:ys) n = rotateR (ys ++ [x]) (n - 1)
 
