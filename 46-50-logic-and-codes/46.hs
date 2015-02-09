@@ -29,3 +29,33 @@ False False False
 
 --}
 
+import           Control.Monad (forM_)
+
+------------------------------------------------------------
+
+and' True True = True
+and' _ _       = False
+
+or' False False = False
+or' _ _         = True
+
+nor False False = True
+nor _ _         = False
+
+xor True False = True
+xor False True = True
+xor _ _        = False
+
+impl True False = False
+impl _ _        = True
+
+equ = undefined
+
+------------------------------------------------------------
+
+table expr = forM_ pairs (eval expr)
+
+eval expr (a,b) = putStrLn $ show a ++ " " ++ show b ++ " " ++ show (expr a b)
+pairs = [(True, True), (True,False), (False,True), (False,False)]
+
+------------------------------------------------------------
