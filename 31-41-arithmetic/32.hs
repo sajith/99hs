@@ -18,7 +18,7 @@ Example in Haskell:
 --}
 
 myGCD a b | b == 0    = a
-          | a < 0     = myGCD ((-1) * a) b
-          | b < 0     = myGCD a ((-1) * b)
+          | a < 0     = myGCD (-a) b
+          | b < 0     = myGCD a (-b)
           | otherwise = myGCD b (a `mod` b)
 
