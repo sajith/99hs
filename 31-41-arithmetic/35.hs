@@ -20,10 +20,7 @@ Example in Haskell:
 primeFactors :: (Integral a) => a -> [a]
 primeFactors n = filter (isPrimeFactor n) [2..(n `div` 2)]
 
-isPrimeFactor n m =
-    if isFactor n m && isPrime m
-    then True
-    else False
+isPrimeFactor n m = isFactor n m && isPrime m
 
 isFactor n m = n `mod` m == 0
 
