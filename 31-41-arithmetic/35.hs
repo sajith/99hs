@@ -16,6 +16,8 @@ Example in Haskell:
 
 --}
 
+-- TODO: not consistent with the above example.
+-- TODO: learn prime factorization for reals.
 
 primeFactors :: (Integral a) => a -> [a]
 primeFactors n = filter (isPrimeFactor n) [2..(n `div` 2)]
