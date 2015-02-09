@@ -21,10 +21,8 @@ primeFactors :: (Integral a) => a -> [a]
 primeFactors n = filter (isPrimeFactor n) [2..(n `div` 2)]
 
 isPrimeFactor n m =
-    if isFactor n m
-    then if isPrime m
-         then True
-         else False
+    if isFactor n m && isPrime m
+    then True
     else False
 
 isFactor n m = n `mod` m == 0
