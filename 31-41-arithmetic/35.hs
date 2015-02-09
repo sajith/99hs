@@ -24,8 +24,6 @@ isPrimeFactor n m = isFactor n m && isPrime m
 
 isFactor n m = n `mod` m == 0
 
-isPrime m =
-    if ((length $ filter (\n -> (m `mod` n) == 0) [2..(m `div` 2)]) == 0)
-    then True
-    else False
+isPrime m = (length $ filter (\n -> (m `mod` n) == 0) [2..(m `div` 2)]) == 0
+
 
