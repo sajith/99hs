@@ -18,7 +18,7 @@ Example in Haskell:
 
 -- TODO: learn prime factorization, revisit.
 primeFactors :: (Integral a) => a -> [a]
-primeFactors n = filter (\m -> isPrimeFactor n m) [2..(n `div` 2)]
+primeFactors n = filter (isPrimeFactor n) [2..(n `div` 2)]
 
 isPrimeFactor n m =
     if isFactor n m
