@@ -67,3 +67,9 @@ Branch 'x' (Branch 'x' (Branch 'x' Empty Empty)
 
 --}
 
+import           BinaryTree
+
+cbalTree n | n <= 0     = Empty
+           | otherwise  = Branch 'x' (cbalTree (n `div` 2)) (cbalTree ((n-1) `div` 2))
+
+
