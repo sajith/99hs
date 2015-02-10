@@ -24,4 +24,15 @@ P49> gray 3
 
 --}
 
+import           Data.List (nub, permutations, sort)
+
+gray 0 = []
+gray n = clean $ combine $ map (\(n1,n2) -> ones n1 ++ zeroes n2) (pairs n)
+
+combine = concatMap permutations
+clean = sort . nub
+
+ones n = replicate n '1'
+zeroes n = replicate n '0'
+pairs n = [(x,y) | x <- [0..n], y <- [0..n], x + y == n]
 
