@@ -71,6 +71,8 @@ Branch 'x' (Branch 'x' (Branch 'x' Empty Empty)
 
 import           BinaryTree
 
+-- TODO: this doesn't generate all solutions!
+
 cbalTree :: forall a. Integral a => a -> Tree Char
 cbalTree n = cbalTree' n 'x'
 
