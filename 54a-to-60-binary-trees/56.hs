@@ -18,3 +18,9 @@ True
 
 --}
 
+import           BinaryTree
+
+symmetric :: Eq t => Tree t -> Bool
+symmetric Empty                 = True
+symmetric (Branch _ left right) = left == right
+
