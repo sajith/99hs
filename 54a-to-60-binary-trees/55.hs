@@ -1,3 +1,5 @@
+{-# LANGUAGE RankNTypes #-}
+
 {--
 
 (**) Construct completely balanced binary trees
@@ -69,7 +71,11 @@ Branch 'x' (Branch 'x' (Branch 'x' Empty Empty)
 
 import           BinaryTree
 
-cbalTree n | n <= 0     = Empty
-           | otherwise  = Branch 'x' (cbalTree (n `div` 2)) (cbalTree ((n-1) `div` 2))
+cbalTree :: forall a. Integral a => a -> Tree Char
+cbalTree n = cbalTree' n 'x'
+
+cbalTree' :: forall a. Integral a => a -> Char -> Tree Char
+cbalTree' n a | n <= 0     = Empty
+              | otherwise  = Branch a (cbalTree (n `div` 2)) (cbalTree ((n-1) `div` 2))
 
 
