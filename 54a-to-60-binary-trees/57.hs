@@ -31,4 +31,29 @@ True
 
 --}
 
+import           BinaryTree
+import           Debug.Trace (trace)
+
+construct :: (Show a, Ord a) => [a] -> Tree a
+construct []     = Empty
+construct (x:xs) = addNodes (leaf x) xs
+
+addNodes :: (Show a, Ord a) => Tree a -> [a] -> Tree a
+addNodes t []     = t
+addNodes t (x:xs) = addNodes (addNode t x) xs
+
+-- locate appropriate node for new node in the tree
+addNode :: (Show a, Eq a, Ord a) => Tree a -> a -> Tree a
+addNode (Empty) x = leaf x
+addNode (Branch b left right) x = trace ("adding " ++ show x ++ ", result: " ++ show tree)
+                                  $ tree
+  where tree = if (x < b)
+               then
+                   if (left == Empty)
+                   then (Branch b (leaf x) right)
+                   else addNode left b
+               else
+                   if (right == Empty)
+                   then (Branch b right (leaf x))
+                   else addNode right b
 
