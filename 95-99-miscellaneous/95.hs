@@ -36,6 +36,7 @@ fullWords :: Integer -> String
 fullWords n | n >= 0    = makeStr n
             | otherwise = "can't do"
 
+makeStr :: Integer -> String
 makeStr = stringify . breakNum
 
 stringify :: [Integer] -> String
