@@ -33,7 +33,10 @@ nums =  M.fromList  [(0, "zero"),
                      (9, "nine")]
 
 fullWords :: Integer -> String
-fullWords n = stringify $ breakNum n
+fullWords n | n >= 0    = makeStr n
+            | otherwise = "can't do"
+
+makeStr = stringify . breakNum
 
 stringify :: [Integer] -> String
 stringify ns = intercalate "-" $ map (\n -> fromJust $ M.lookup n nums) ns
